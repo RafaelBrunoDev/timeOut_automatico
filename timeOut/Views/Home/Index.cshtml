@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script>
+
+    // setTimeout(function () {
+    //   window.location.href = "https://localhost:44355/Home/Contact"
+    // alert('Seu tempo acabou!! Tente novamente!!');
+    //}, 4000);
+
+    function timer(segundos) {
+        var btn = document.getElementById('btn');
+
+        //Estilo do timer
+        btn.value = "Aguarde " + segundos + " segundos";
+        btn.style.backgroundColor = "#FFFFFF";
+        btn.style.border = "1px solid #222222";
+        btn.style.borderRadius = "4px";
+        btn.style.boxSizing = "border-box";
+        btn.style.color = "#222222";
+        //btn.style.cursor = "pointer";
+        btn.style.display = "inline-block";
+        btn.style.fontFamily = "Circular,-apple-system,BlinkMacSystemFont'Roboto,Helvetica Neue',sans-serif";
+        btn.style.fontSize = "16px";
+        btn.style.fontWeight = "600";
+        btn.style.lineHeight = "20px";
+        btn.style.margin = "0";
+        btn.style.outline = "outline";
+        btn.style.padding = "13px 23px";
+        btn.style.position = "relative";
+        btn.style.textAlign = "center";
+        btn.style.textDecoration = "none";
+        btn.style.touchAction = "manipulation";
+        btn.style.transition = "box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s";
+        btn.style.userSelect = "none";
+        btn.style.webkitUserSelect = "none";
+        btn.style.width = "auto";
+        //Fim estilo timer
+        
+
+
+        if (segundos < 1) {
+            
+            clearTimeout(timer);
+            document.location = 'https://localhost:44355/Home/Contact'
+            alert('Tempo Expirado !');
+            btn.disabled = true;
+            //btn.value = 'OK';
+        }
+        segundos--;
+        var timer = setTimeout('timer(' + segundos + ')', 1000);
+
+    }
+</script>
+
+<main>
+
+
+    <div class="row">
+        
+    </div>
+
+    <div>
+        <input disabled type="submit" id="btn" value="Aguarde 60 segundos!">
+
+        <script type="text/javascript">
+            timer(10);
+         </script>
+    </div>
+
+
+</main>
